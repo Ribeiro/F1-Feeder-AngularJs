@@ -1,5 +1,7 @@
 angular.module('F1FeederApp.controllers', []).
 
+    //driversFromService injected here being retrieved by ergastAPIservice.getDrivers() using promise 'resolve' on $routeProvider
+
   /* Drivers controller */
   controller('driversController', function($scope, driversFromService) {
     $scope.nameFilter = null;
