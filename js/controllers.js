@@ -1,7 +1,7 @@
 angular.module('F1FeederApp.controllers', []).
 
   /* Drivers controller */
-  controller('driversController', function($scope, ergastAPIservice) {
+  controller('driversController', function($scope, driversFromService) {
     $scope.nameFilter = null;
     $scope.driversList = [];
     $scope.searchFilter = function (driver) {
@@ -9,10 +9,8 @@ angular.module('F1FeederApp.controllers', []).
         return !$scope.nameFilter || re.test(driver.Driver.givenName) || re.test(driver.Driver.familyName);
     };
 
-    ergastAPIservice.getDrivers().success(function (response) {
-        //Digging into the response to get the relevant data
-        $scope.driversList = response.MRData.StandingsTable.StandingsLists[0].DriverStandings;
-    });
+      $scope.driversList = driversFromService.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+
   }).
 
   /* Driver controller */
