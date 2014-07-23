@@ -10,6 +10,8 @@ config(['$routeProvider', function($routeProvider) {
                                                                                   return ergastAPIservice.getDrivers();
                                                                               }
                                                                           }
-                    }).when("/drivers/:id", {templateUrl: "partials/driver.html", controller: "driverController"}).otherwise({redirectTo: '/drivers'});
+                })
+                .when("/drivers/:id", {templateUrl: "partials/driver.html", controller: "driverController"})
+                .otherwise({redirectTo: '/drivers'});
 
 }]);
